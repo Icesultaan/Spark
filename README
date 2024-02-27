@@ -1,0 +1,51 @@
+About the Project
+The main goal of the project is to check restaurants file for incorrect (null) latitude and longitude values, if necessary, correct them by obtaining data from the OpenCage Geocoding API. 
+Then, generate a geohash based on latitude and longitude data using the geohash-java library, adding the obtained values to an additional column. 
+After that, the restaurant and weather data are merged based on a four-character geohash. 
+The final result is saved as enriched_data.parquet.rar, preserving the data partitioning.
+
+Tools Used
+Apache Spark (version 2.1.1)
+Scala (version 2.11.8)
+OpenCage Geocoding API (need API key)
+geohash-java
+
+Project Structure:
+workspace/
+│
+└── HelloSpark/
+    │
+    ├── HelloSpark/
+    │   ├── build.sbt
+    │   ├── src/
+    │   │   └── main/
+    │   │       └── scala/
+    │   │           └── SparkTest.scala
+    │   └── target/
+    │
+    ├── data/
+    │   ├── restaurant_data.csv
+    │   └── weather_data.csv
+    │
+    └── README.md
+SparkTest.scala - Main code file
+GeoCode.scala - Checking API response
+SparkJobWithApiCall.scala - Checking API response with example from csv files via parameter
+Weather.scala - Reading weather file
+
+
+Running the Project
+Clone the repository to your computer.
+Ensure that the following tools are installed on your computer: Apache Spark (version 2.1.1), Scala (version 2.11.8).
+Navigate to the directory containing the build.sbt file and run the project from the command line or from your IDE.
+
+cd HelloSpark/HelloSpark
+sbt run
+
+Additional Notes
+Please ensure you have access to the OpenCage Geocoding API and credentials to access it.
+If the size of the enriched_data.parquet.rar file exceeds 100 MB, it is recommended to use Git Large File Storage to upload it to GitHub.
+Contact
+For any questions or feedback, please contact me via email at aisultankharakozha@gmail.com or aisultan_kharakozha@epam.com .
+
+Have a great day! 🚀
